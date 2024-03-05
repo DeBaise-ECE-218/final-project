@@ -8,6 +8,18 @@
 //=====[Declaration of public data types]======================================
 
 //=====[Declarations (prototypes) of public functions]=========================
+void sensorInit();
+void sensorUpdate();
+
+float ldrRead();
+float BpotRead();
+float GpotRead();
+float RpotRead();
+bool motionSensorRead();
+
+void motionSensorActivate();
+void motionSensorDeactivate();
+
 
 //=====[#include guards - end]=================================================
 
