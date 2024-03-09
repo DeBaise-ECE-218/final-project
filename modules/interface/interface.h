@@ -9,6 +9,9 @@
 
 //=====[Declarations (prototypes) of public functions]=========================
 
+void userInterfaceInit();
+void userInterfaceUpdate();
+
 //=====[#include guards - end]=================================================
 
 #endif // _INTERFACE_H_
