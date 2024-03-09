@@ -13,8 +13,6 @@ void motionInit();
 void motionUpdate();
 bool motionSensorRead();
 
-void motionSensorActivate();
-void motionSensorDeactivate();
 
 //=====[#include guards - end]=================================================
 

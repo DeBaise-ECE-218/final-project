@@ -38,7 +38,6 @@ void print( const char* str )
 
 //=====[Declaration and initialization of private global variables]============
 static bool pirState;
-static bool motionSensorActivated;
 
 motionState_t motionState = NOT_OCCUPIED;
 
@@ -55,31 +54,30 @@ static void motionCeased();
 void motionInit() {
     pir.rise(&motionDetected);
     pirState = 0;
-    motionSensorActivated = false;
 }
 
 void motionUpdate() {
-    if(accumulatedTimes > 500) {
-        accumulatedTimes = 0;
-        if(motionState == OCCUPIED) {
-            print("Curr state: occupied");
-        } else if(motionState == WAIT) {
-            print("Curr state: wait");
-        } else {
-            print("Curr state: not occupied");
-        }
+    // if(accumulatedTimes > 500) {
+    //     accumulatedTimes = 0;
+    //     if(motionState == OCCUPIED) {
+    //         print("Curr state: occupied");
+    //     } else if(motionState == WAIT) {
+    //         print("Curr state: wait");
+    //     } else {
+    //         print("Curr state: not occupied");
+    //     }
 
 
-        if(motionSensorRead()) {
-            print("Motion detected");
-        } else {
-            print("Motion not detected");
-        }
-        print("\n");
+    //     if(motionSensorRead()) {
+    //         print("Motion detected");
+    //     } else {
+    //         print("Motion not detected");
+    //     }
+    //     print("\n");
 
-    } else {
-        accumulatedTimes += 10;
-    }
+    // } else {
+    //     accumulatedTimes += 10;
+    // }
 
     switch(motionState) {
         case OCCUPIED:
@@ -107,6 +105,8 @@ void motionUpdate() {
                     motionState = OCCUPIED;
                 }
 
+                sendData(ON);
+
                 accumulatedTime += SYSTEM_DELAY_TIME;
             }
             break;
@@ -118,22 +118,6 @@ bool motionSensorRead()
     return pirState;
 }
 
-
-void motionSensorActivate()
-{
-    motionSensorActivated = true;
-    if ( !pirState ) {
-        pir.rise(&motionDetected);
-    }   
-}
-
-void motionSensorDeactivate()
-{
-    motionSensorActivated = false;
-    if ( !pirState ) {
-        pir.rise(NULL);
-    }
-}
 
 //=====[Implementations of private functions]==================================
 
@@ -148,7 +132,5 @@ static void motionCeased()
 {
     pirState = OFF;
     pir.fall(NULL);
-    if ( motionSensorActivated ) {
-        pir.rise(&motionDetected);
-    }
+    pir.rise(&motionDetected);
 }
