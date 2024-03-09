@@ -8,15 +8,15 @@ Final Project: Eco-Friendly RGB Lighting
 Date submitted for review: 03/09/2024
 
 ### Behavior
-Reads input from user adjusted potentiometers to determin the percentage of red, green, and blue light to emit from the led strip. Reads light level via LDR sensor to determin how much dimming shoukd be applied to the led strip based on natural light. PIR sensor detrmins if the room is occupied, and deactivates the led strip if unoccupied. Naturl light level and RGB levels displayed on LCD display
+Reads input from user adjusted potentiometers to determine the percentage of red, green, and blue light to emit from the led strip. Reads light level via LDR sensor to determine how much dimming shoukd be applied to the led strip based on natural light. PIR sensor determines if the room is occupied, and deactivates the led strip if unoccupied. Natural light level and RGB levels displayed on LCD display.
 
 ### Modules
-- arduino: Facilitates communication between the NUCLEO Board and the Arduino Micro
-- display: Initializes the LCD display
-- interface: Prints relevant info to the LCD display
-- leds: No current use (functianlity is now perfromed by the Arduino Micro)
-- motion: Initializes and determins room occupancy
-- sensors: Initializes and reads RGB potentiometers and LDR sensor
+- arduino: Facilitates communication between the NUCLEO Board and the Arduino Micro (written from scratch)
+- display: Initializes the LCD display (copied from textbook and previous projects)
+- interface: Prints relevant info to the LCD display (based on textbook)
+- leds: No current use (functionality is now performed by the Arduino Micro) (Arduino code is from scratch and uses Neopixel library)
+- motion: Initializes and determines room occupancy (based on textbook)
+- sensors: Initializes and reads RGB potentiometers and LDR sensor (written from scratch)
 
 ### Hardware
 - 1 NUCLEO-F429ZI Microcontroller - Com Pin D10
@@ -31,12 +31,12 @@ Reads input from user adjusted potentiometers to determin the percentage of red,
     - B: A1(NUCLEO) A2(ARDUINO)
   
 ### Testing
-- Initial LED strip test
-- Initial LCD display test
-- LCD display with sensor value display functionality
-- RGB strip with LDR dimming functionality
-- RGB with potentiometer color change functionality
-- RGB with PIR occupancy detection functionality
+- Initial LED strip test: Ensure that LEDs can turn on and be controlled via software [pass]
+- Initial LCD display test: Ensure that LCD can turn on and display values from software [pass]
+- LCD display with sensor value display functionality: Ensure that LCD can display analog readings as a percentage [pass]
+- RGB strip with LDR dimming functionality: Ensure that LDR appropiately dims the brightness of the LED strip [pass]
+- RGB with potentiometer color change functionality: Ensure that potentiometers accurately change color of LED strip [pass]
+- RGB with PIR occupancy detection functionality: Ensure that PIR sensor turns on LED strip when motion is detected, delays a few seconds before turning off the LEDs, and then allows for the motion to be retriggered.
 
 ### Other Important Details
 
