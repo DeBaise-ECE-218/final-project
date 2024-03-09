@@ -12,13 +12,31 @@ Reads input from user adjusted potentiometers to determin the percentage of red,
 
 ### Modules
 - arduino: Facilitates communication between the NUCLEO Board and the Arduino Micro
-- display: initializes the LCD display
-- interface: prints relevant info to the LCD display
-- leds: 
+- display: Initializes the LCD display
+- interface: Prints relevant info to the LCD display
+- leds: No current use (functianlity is now perfromed by the Arduino Micro)
+- motion: Initializes and determins room occupancy
+- sensors: Initializes and reads RGB potentiometers and LDR sensor
 
 ### Hardware
-
+- 1 NUCLEO-F429ZI Microcontroller - Com Pin D10
+- 1 Arduino Micro Microcontroller - Com Pin A4
+- 1 NeoPixel RGB LED Strip - 12 (ARDUINO)
+- 1 LCD Display (with potentiometer) - D0-D7, D8, D9 (NUCLEO)
+- 1 PIR Motion Sensor - PG_0 (NUCLEO)
+- 1 LDR Light Sensor - A0(NUCLEO) A3(ARDUINO)
+- 3 Potentiometers
+    - R: A3(NUCLEO) A0(ARDUINO)
+    - G: A2(NUCLEO) A1(ARDUINO)
+    - B: A1(NUCLEO) A2(ARDUINO)
+  
 ### Testing
+- Initial LED strip test
+- Initial LCD display test
+- LCD display with sensor value display functionality
+- RGB strip with LDR dimming functionality
+- RGB with potentiometer color change functionality
+- RGB with PIR occupancy detection functionality
 
 ### Other Important Details
 
