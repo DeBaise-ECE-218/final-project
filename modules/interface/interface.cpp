@@ -10,14 +10,8 @@
 //=====[Declaration of private defines]========================================
 
 
-#define DISPLAY_REFRESH_TIME_REPORT_MS 1000
-#define DISPLAY_REFRESH_TIME_ALARM_MS 300
-
-
 //=====[Declaration of private data types]=====================================
-typedef enum{
-   DISPLAY_REPORT_STATE
-} displayState_t;
+
 
 
 //=====[Declaration and initialization of public global objects]===============
@@ -30,15 +24,10 @@ typedef enum{
 
 
 //=====[Declaration and initialization of private global variables]============
-static displayState_t displayState = DISPLAY_REPORT_STATE;
 
 
 // Declaration of modeSelector
 
-
-
-static int displayAlarmGraphicSequence = 0;
-static int displayRefreshTimeMs = DISPLAY_REFRESH_TIME_REPORT_MS;
 
 
 //=====[Declarations (prototypes) of private functions]========================
@@ -70,20 +59,16 @@ void userInterfaceUpdate()
 
 static void userInterfaceDisplayReportStateInit()
 {
-   displayState = DISPLAY_REPORT_STATE;
-   displayRefreshTimeMs = DISPLAY_REFRESH_TIME_REPORT_MS;
-  
-   displayModeWrite( DISPLAY_MODE_CHAR );
+    displayInit();
+     
+    displayCharPositionWrite ( 0,0 );
+    displayStringWrite( "Tmp:" );
 
-
-   displayClear();
-   displayRefreshTimeMs = DISPLAY_REFRESH_TIME_REPORT_MS;
-
-
-   displayModeWrite( DISPLAY_MODE_CHAR );
-
-
-   displayClear();
+    displayCharPositionWrite ( 9,0 );
+    displayStringWrite( "Gas:" );
+    
+    displayCharPositionWrite ( 0,1 );
+    displayStringWrite( "Alarm:" );
 
 
    // Display light lvl
