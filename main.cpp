@@ -5,11 +5,9 @@
 // main() runs in its own thread in the OS
 int main()
 {
-
     userInterfaceInit();
 
     while (true) {
-
         userInterfaceUpdate();
         delay(SYSTEM_DELAY_TIME);
     }

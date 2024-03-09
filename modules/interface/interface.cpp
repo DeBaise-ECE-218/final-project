@@ -41,7 +41,7 @@ static void userInterfaceDisplayReportStateUpdate();
 
 //=====[Implementations of public functions]===================================
 
-
+// initialize interface
 void userInterfaceInit()
 {
    userInterfaceDisplayInit();
@@ -49,6 +49,7 @@ void userInterfaceInit()
 }
 
 
+// update interface
 void userInterfaceUpdate()
 {
    userInterfaceDisplayUpdate();
@@ -58,7 +59,9 @@ void userInterfaceUpdate()
 
 //=====[Implementations of private functions]==================================
 
-
+/**
+* Update the display with new data
+*/
 static void userInterfaceDisplayReportStateUpdate()
 {
    char ldrString[3] = "";
@@ -86,6 +89,7 @@ static void userInterfaceDisplayReportStateUpdate()
 }
 
 
+// Initialize display
 static void userInterfaceDisplayInit() {
    displayInit();
 
@@ -105,7 +109,7 @@ static void userInterfaceDisplayInit() {
    displayStringWrite( "B:" );
 }
 
-
+// Update display after timeout
 static void userInterfaceDisplayUpdate()
 {
    static int accumulatedDisplayTime = 0;

@@ -56,29 +56,11 @@ void motionInit() {
     pirState = 0;
 }
 
+/**
+* Keep track of motion state: Start in not occupied, 
+* when motion detected, go to occupied state, after 5 seconds, if no motion, go back to not occupied
+*/
 void motionUpdate() {
-    // if(accumulatedTimes > 500) {
-    //     accumulatedTimes = 0;
-    //     if(motionState == OCCUPIED) {
-    //         print("Curr state: occupied");
-    //     } else if(motionState == WAIT) {
-    //         print("Curr state: wait");
-    //     } else {
-    //         print("Curr state: not occupied");
-    //     }
-
-
-    //     if(motionSensorRead()) {
-    //         print("Motion detected");
-    //     } else {
-    //         print("Motion not detected");
-    //     }
-    //     print("\n");
-
-    // } else {
-    //     accumulatedTimes += 10;
-    // }
-
     switch(motionState) {
         case OCCUPIED:
             if(!motionSensorRead()) {

@@ -22,6 +22,9 @@ DigitalOut dataTransfer(D10);
 
 //=====[Implementations of public functions]===================================
 
+/**
+* Send data to the arduino
+*/
 void sendData(bool state) {
     dataTransfer = state;
 }
