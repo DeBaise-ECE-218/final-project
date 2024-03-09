@@ -69,6 +69,11 @@ bool motionSensorRead()
     return pirState;
 }
 
+float convertToPercent(float sensorVal){
+    int percentVal = sensorVal * 100;
+    return percentVal;
+}
+
 // ===================================================== motion sensor specifics
 
 void motionSensorActivate()

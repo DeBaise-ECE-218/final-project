@@ -16,6 +16,7 @@ float BpotRead();
 float GpotRead();
 float RpotRead();
 bool motionSensorRead();
+float convertToPercent(float sensorVal);
 
 void motionSensorActivate();
 void motionSensorDeactivate();
