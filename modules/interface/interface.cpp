@@ -67,21 +67,21 @@ static void userInterfaceDisplayReportStateUpdate()
    char bString[3] = "";
   
    // ldr reading display
-   sprintf(ldrString, "%.0f", ldrRead());
-   displayCharPositionWrite ( 9,0 );
+   sprintf(ldrString, "%.0f", convertToPercent(ldrRead()));
+   displayCharPositionWrite ( 7,0 );
    displayStringWrite( ldrString );
 
    // rgb reading display
-   sprintf(rString, "%.0f", RpotRead());
-   displayCharPositionWrite ( 3,1 );
+   sprintf(rString, "%.0f", convertToPercent(RpotRead()));
+   displayCharPositionWrite ( 2,1 );
    displayStringWrite( rString );
    
-   sprintf(gString, "%.0f", GpotRead());
-   displayCharPositionWrite ( 9,1 );
+   sprintf(gString, "%.0f", convertToPercent(GpotRead()));
+   displayCharPositionWrite ( 7,1 );
    displayStringWrite( gString );
 
-   sprintf(bString, "%.0f", BpotRead());
-   displayCharPositionWrite ( 14,1 );
+   sprintf(bString, "%.0f", convertToPercent(BpotRead()));
+   displayCharPositionWrite ( 12,1 );
    displayStringWrite( bString );
 }
 
@@ -98,10 +98,10 @@ static void userInterfaceDisplayInit() {
    displayCharPositionWrite ( 0,1 );
    displayStringWrite( "R:" );
 
-   displayCharPositionWrite ( 6,1 );
+   displayCharPositionWrite ( 5,1 );
    displayStringWrite( "G:" );
 
-   displayCharPositionWrite ( 11,1 );
+   displayCharPositionWrite ( 10,1 );
    displayStringWrite( "B:" );
 }
 

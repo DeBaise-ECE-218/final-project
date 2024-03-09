@@ -55,5 +55,10 @@ float RpotRead()
     return Rpot.read();
 }
 
+float convertToPercent(float sensorVal){
+    int percentVal = sensorVal * 100;
+    return percentVal;
+}
+
 
 //=====[Implementations of private functions]==================================
