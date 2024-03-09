@@ -6,6 +6,7 @@
 #include "interface.h"
 #include "display.h"
 #include "sensors.h"
+#include "motion.h"
 
 //=====[Declaration of private defines]========================================
 #define DISPLAY_REFRESH_TIME_MS 1000
@@ -44,14 +45,14 @@ static void userInterfaceDisplayReportStateUpdate();
 void userInterfaceInit()
 {
    userInterfaceDisplayInit();
+   motionInit();
 }
 
 
 void userInterfaceUpdate()
 {
    userInterfaceDisplayUpdate();
-
-
+   motionUpdate();
 }
 
 

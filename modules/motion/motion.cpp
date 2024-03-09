@@ -5,6 +5,7 @@
 #include "interface.h"
 #include "arduino.h"
 
+
 //=====[Declaration of private defines]========================================
 
 #define TIME_WAIT 5000
@@ -21,7 +22,16 @@ typedef enum {
 
 //=====[Declaration of external private global objects]=======================
 
+void print( const char* str );
+
 InterruptIn pir(PG_0);
+
+UnbufferedSerial uartUsb(USBTX, USBRX, 115200);
+
+void print( const char* str )
+{
+    uartUsb.write( str, strlen(str) );
+}
 
 
 //=====[Declaration and initialization of public global variables]=============
@@ -33,6 +43,7 @@ static bool motionSensorActivated;
 motionState_t motionState = NOT_OCCUPIED;
 
 int accumulatedTime = 0;
+int accumulatedTimes = 0;
 
 //=====[Declarations (prototypes) of private functions]========================
 
@@ -48,6 +59,28 @@ void motionInit() {
 }
 
 void motionUpdate() {
+    if(accumulatedTimes > 500) {
+        accumulatedTimes = 0;
+        if(motionState == OCCUPIED) {
+            print("Curr state: occupied");
+        } else if(motionState == WAIT) {
+            print("Curr state: wait");
+        } else {
+            print("Curr state: not occupied");
+        }
+
+
+        if(motionSensorRead()) {
+            print("Motion detected");
+        } else {
+            print("Motion not detected");
+        }
+        print("\n");
+
+    } else {
+        accumulatedTimes += 10;
+    }
+
     switch(motionState) {
         case OCCUPIED:
             if(!motionSensorRead()) {
