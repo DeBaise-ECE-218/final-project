@@ -15,14 +15,13 @@ float ldrRead();
 float BpotRead();
 float GpotRead();
 float RpotRead();
-<<<<<<< HEAD
+
 bool motionSensorRead();
 float convertToPercent(float sensorVal);
 
 void motionSensorActivate();
 void motionSensorDeactivate();
-=======
->>>>>>> 6023b00e1f85061f4ac1919367a9c79d84104303
+
 
 
 //=====[#include guards - end]=================================================

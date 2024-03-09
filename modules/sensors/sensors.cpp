@@ -55,36 +55,5 @@ float RpotRead()
     return Rpot.read();
 }
 
-<<<<<<< HEAD
-bool motionSensorRead()
-{
-    return pirState;
-}
-
-float convertToPercent(float sensorVal){
-    int percentVal = sensorVal * 100;
-    return percentVal;
-}
-
-// ===================================================== motion sensor specifics
-
-void motionSensorActivate()
-{
-    motionSensorActivated = true;
-    if ( !pirState ) {
-        pir.rise(&motionDetected);
-    }   
-}
-
-void motionSensorDeactivate()
-{
-    motionSensorActivated = false;
-    if ( !pirState ) {
-        pir.rise(NULL);
-    }
-}
-
-=======
->>>>>>> 6023b00e1f85061f4ac1919367a9c79d84104303
 
 //=====[Implementations of private functions]==================================
