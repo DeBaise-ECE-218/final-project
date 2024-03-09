@@ -50,6 +50,8 @@ void userInterfaceInit()
 void userInterfaceUpdate()
 {
    userInterfaceDisplayUpdate();
+
+
 }
 
 

@@ -16,28 +16,19 @@ AnalogIn Bpot(A1);
 AnalogIn Gpot(A2);
 AnalogIn Rpot(A3);
 
-InterruptIn pir(PG_0);
-
 //=====[Declaration of external public global variables]=======================
 
 //=====[Declaration and initialization of public global variables]=============
 
 //=====[Declaration and initialization of private global variables]============
 
-static bool pirState;
-static bool motionSensorActivated;
-
 //=====[Declarations (prototypes) of private functions]========================
 
-static void motionDetected();
-static void motionCeased();
 
 //=====[Implementations of public functions]===================================
 
 void sensorInit(){ 
-    pir.rise(&motionDetected);
-    pirState = 0;
-    motionSensorActivated = false;
+    
 }
 
 void sensorUpdate(){ 
@@ -64,6 +55,7 @@ float RpotRead()
     return Rpot.read();
 }
 
+<<<<<<< HEAD
 bool motionSensorRead()
 {
     return pirState;
@@ -92,21 +84,7 @@ void motionSensorDeactivate()
     }
 }
 
+=======
+>>>>>>> 6023b00e1f85061f4ac1919367a9c79d84104303
 
 //=====[Implementations of private functions]==================================
-
-static void motionDetected()
-{
-    pirState = ON;
-    pir.rise(NULL);
-    pir.fall(&motionCeased);
-}
-
-static void motionCeased()
-{
-    pirState = OFF;
-    pir.fall(NULL);
-    if ( motionSensorActivated ) {
-        pir.rise(&motionDetected);
-    }
-}
