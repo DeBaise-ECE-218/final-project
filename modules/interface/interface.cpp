@@ -8,7 +8,7 @@
 #include "sensors.h"
 
 //=====[Declaration of private defines]========================================
-
+#define DISPLAY_REFRESH_TIME_MS 1000
 
 //=====[Declaration of private data types]=====================================
 
@@ -35,7 +35,6 @@
 
 static void userInterfaceDisplayInit();
 static void userInterfaceDisplayUpdate();
-static void userInterfaceDisplayReportStateInit();
 static void userInterfaceDisplayReportStateUpdate();
 
 
@@ -55,41 +54,6 @@ void userInterfaceUpdate()
 
 
 //=====[Implementations of private functions]==================================
-
-
-static void userInterfaceDisplayReportStateInit()
-{
-    displayInit();
-     
-    displayCharPositionWrite ( 0,0 );
-    displayStringWrite( "Tmp:" );
-
-    displayCharPositionWrite ( 9,0 );
-    displayStringWrite( "Gas:" );
-    
-    displayCharPositionWrite ( 0,1 );
-    displayStringWrite( "Alarm:" );
-
-
-   // Display light lvl
-   displayCharPositionWrite ( 0,0 );
-   displayStringWrite( "NL Lvl:" );
-
-   
-   // Display RGB lvls
-   displayCharPositionWrite ( 0,1 );
-   displayStringWrite( "R:" );
-
-   displayCharPositionWrite ( 6,1 );
-   displayStringWrite( "G:" );
-
-   displayCharPositionWrite ( 11,1 );
-   displayStringWrite( "B:" );
-
-   
-}
-
-
 
 
 static void userInterfaceDisplayReportStateUpdate()
@@ -119,10 +83,23 @@ static void userInterfaceDisplayReportStateUpdate()
 }
 
 
-static void userInterfaceDisplayInit()
-{
-   displayInit( DISPLAY_TYPE_GLCD_ST7920, DISPLAY_CONNECTION_SPI );
-   userInterfaceDisplayReportStateInit();
+static void userInterfaceDisplayInit() {
+   displayInit();
+
+   // Display light lvl
+   displayCharPositionWrite ( 0,0 );
+   displayStringWrite( "NL Lvl:");
+
+   
+   // Display RGB lvls
+   displayCharPositionWrite ( 0,1 );
+   displayStringWrite( "R:" );
+
+   displayCharPositionWrite ( 6,1 );
+   displayStringWrite( "G:" );
+
+   displayCharPositionWrite ( 11,1 );
+   displayStringWrite( "B:" );
 }
 
 
@@ -130,24 +107,8 @@ static void userInterfaceDisplayUpdate()
 {
    static int accumulatedDisplayTime = 0;
   
-   if( accumulatedDisplayTime >=
-       displayRefreshTimeMs ) {
-
-
+   if( accumulatedDisplayTime >= DISPLAY_REFRESH_TIME_MS ) {
        accumulatedDisplayTime = 0;
-
-
-       switch ( displayState ) {
-           case DISPLAY_REPORT_STATE:
-               userInterfaceDisplayReportStateUpdate();
-
-
-           break;
-
-
-           default:
-               userInterfaceDisplayReportStateInit();
-           break;
-       }
+       userInterfaceDisplayReportStateUpdate();
    }
 }
