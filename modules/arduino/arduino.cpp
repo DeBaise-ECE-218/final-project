@@ -1,8 +1,8 @@
 //=====[Libraries]=============================================================
 
-#include "arm_book_lib.h"
+#include "arduino.h"
 #include "mbed.h"
-#include "sensors.h"
+#include "arm_book_lib.h"
 
 //=====[Declaration of private defines]========================================
 
@@ -10,11 +10,7 @@
 
 //=====[Declaration and initialization of public global objects]===============
 
-AnalogIn ldr(A0);
-
-AnalogIn Bpot(A1);
-AnalogIn Gpot(A2);
-AnalogIn Rpot(A3);
+DigitalOut dataTransfer(D10);
 
 //=====[Declaration of external public global variables]=======================
 
@@ -24,36 +20,10 @@ AnalogIn Rpot(A3);
 
 //=====[Declarations (prototypes) of private functions]========================
 
-
 //=====[Implementations of public functions]===================================
 
-void sensorInit(){ 
-    
+void sendData(bool state) {
+    dataTransfer = state;
 }
-
-void sensorUpdate(){ 
-
-}
-
-float ldrRead()
-{
-    return ldr.read();
-}
-
-float BpotRead()
-{
-    return Bpot.read();
-}
-
-float GpotRead()
-{
-    return Gpot.read();
-}
-
-float RpotRead()
-{
-    return Rpot.read();
-}
-
 
 //=====[Implementations of private functions]==================================

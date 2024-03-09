@@ -50,6 +50,8 @@ void userInterfaceInit()
 void userInterfaceUpdate()
 {
    userInterfaceDisplayUpdate();
+
+
 }
 
 
@@ -58,10 +60,10 @@ void userInterfaceUpdate()
 
 static void userInterfaceDisplayReportStateUpdate()
 {
-   char ldrString[10] = "";
-   char rString[10] = "";
-   char gString[10] = "";
-   char bString[10] = "";
+   char ldrString[3] = "";
+   char rString[3] = "";
+   char gString[3] = "";
+   char bString[3] = "";
   
    // ldr reading display
    sprintf(ldrString, "%.0f", ldrRead());

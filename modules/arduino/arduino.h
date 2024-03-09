@@ -1,22 +1,16 @@
 //=====[#include guards - begin]===============================================
 
-#ifndef _SENSORS_H_
-#define _SENSORS_H_
+#ifndef _ARDUINO_H
+#define _ARDUINO_H
 
 //=====[Declaration of public defines]=========================================
 
 //=====[Declaration of public data types]======================================
 
 //=====[Declarations (prototypes) of public functions]=========================
-void sensorInit();
-void sensorUpdate();
 
-float ldrRead();
-float BpotRead();
-float GpotRead();
-float RpotRead();
-
+void sendData(bool state);
 
 //=====[#include guards - end]=================================================
 
-#endif // _SENSORS_H_
+#endif // _ARDUINO_H
