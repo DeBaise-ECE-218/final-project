@@ -11,6 +11,7 @@ int main()
     while (true) {
 
         userInterfaceUpdate();
+        delay(SYSTEM_DELAY_TIME);
     }
 }
 

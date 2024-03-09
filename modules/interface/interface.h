@@ -5,6 +5,8 @@
 
 //=====[Declaration of public defines]=========================================
 
+#define SYSTEM_DELAY_TIME 10
+
 //=====[Declaration of public data types]======================================
 
 //=====[Declarations (prototypes) of public functions]=========================

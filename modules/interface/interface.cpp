@@ -110,5 +110,7 @@ static void userInterfaceDisplayUpdate()
    if( accumulatedDisplayTime >= DISPLAY_REFRESH_TIME_MS ) {
        accumulatedDisplayTime = 0;
        userInterfaceDisplayReportStateUpdate();
+   } else {
+       accumulatedDisplayTime += SYSTEM_DELAY_TIME;
    }
 }
