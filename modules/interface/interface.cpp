@@ -70,22 +70,23 @@ static void userInterfaceDisplayReportStateUpdate()
    char bString[3] = "";
   
    // ldr reading display
-   sprintf(ldrString, "%.0f", convertToPercent(ldrRead()));
-   displayCharPositionWrite ( 7,0 );
-   displayStringWrite( ldrString );
+    sprintf(ldrString, "%-2d", convertToPercent(ldrRead()));
+    displayCharPositionWrite(7, 0);
+    displayStringWrite(ldrString);
 
-   // rgb reading display
-   sprintf(rString, "%.0f", convertToPercent(RpotRead()));
-   displayCharPositionWrite ( 2,1 );
-   displayStringWrite( rString );
-   
-   sprintf(gString, "%.0f", convertToPercent(GpotRead()));
-   displayCharPositionWrite ( 7,1 );
-   displayStringWrite( gString );
+    // rgb reading display
+    sprintf(rString, "%-2d", convertToPercent(RpotRead()));
+    displayCharPositionWrite(2, 1);
+    displayStringWrite(rString);
+    
+    sprintf(gString, "%-2d", convertToPercent(GpotRead()));
+    displayCharPositionWrite(7, 1);
+    displayStringWrite(gString);
 
-   sprintf(bString, "%.0f", convertToPercent(BpotRead()));
-   displayCharPositionWrite ( 12,1 );
-   displayStringWrite( bString );
+    sprintf(bString, "%-2d", convertToPercent(BpotRead()));
+    displayCharPositionWrite(12, 1);
+    displayStringWrite(bString);
+
 }
 
 

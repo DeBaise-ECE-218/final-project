@@ -13,7 +13,7 @@ float BpotRead();
 float GpotRead();
 float RpotRead();
 
-float convertToPercent(float sensorVal);
+int convertToPercent(float sensorVal);
 
 
 
