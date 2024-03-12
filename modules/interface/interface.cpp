@@ -64,28 +64,29 @@ void userInterfaceUpdate()
 */
 static void userInterfaceDisplayReportStateUpdate()
 {
-   char ldrString[3] = "";
-   char rString[3] = "";
-   char gString[3] = "";
-   char bString[3] = "";
-  
-   // ldr reading display
-    sprintf(ldrString, "%-2d", convertToPercent(ldrRead()));
+    char ldrString[4] = "";  // Ensure there's space for the null terminator
+    char rString[4] = "";
+    char gString[4] = "";
+    char bString[4] = "";
+
+    // ldr reading display
+    sprintf(ldrString, "%3d", (int)ldrRead());
     displayCharPositionWrite(7, 0);
     displayStringWrite(ldrString);
 
     // rgb reading display
-    sprintf(rString, "%-2d", convertToPercent(RpotRead()));
+    sprintf(rString, "%3d", (int)convertToPercent(RpotRead()));
     displayCharPositionWrite(2, 1);
     displayStringWrite(rString);
-    
-    sprintf(gString, "%-2d", convertToPercent(GpotRead()));
+
+    sprintf(gString, "%3d", (int)convertToPercent(GpotRead()));
     displayCharPositionWrite(7, 1);
     displayStringWrite(gString);
 
-    sprintf(bString, "%-2d", convertToPercent(BpotRead()));
+    sprintf(bString, "%3d", (int)convertToPercent(BpotRead()));
     displayCharPositionWrite(12, 1);
     displayStringWrite(bString);
+
 
 }
 

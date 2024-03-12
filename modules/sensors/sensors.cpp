@@ -48,9 +48,8 @@ float RpotRead()
 }
 
 // Convert a given value between 0-1 to a percentage (i.e. 0.54 = 54)
-int convertToPercent(float sensorVal){
-    int percentVal = sensorVal * 100;
-    return percentVal;
+float convertToPercent(float sensorVal){
+    return sensorVal * 100;
 }
 
 
