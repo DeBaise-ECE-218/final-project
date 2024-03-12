@@ -27,14 +27,6 @@ AnalogIn Rpot(A3);
 
 //=====[Implementations of public functions]===================================
 
-void sensorInit(){ 
-    
-}
-
-void sensorUpdate(){ 
-
-}
-
 float ldrRead()
 {
     return ldr.read();
